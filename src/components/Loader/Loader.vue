@@ -1,7 +1,7 @@
 <template>
   <div class="loader" :class="loaderClasses">
     <div class="loader__element">
-      <div v-if="withBackground" class="loader__text">
+      <div v-if="withText" class="loader__text">
         LOADING
       </div>
       <div class="loader__lines">

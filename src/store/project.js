@@ -19,8 +19,8 @@ export const ProjectStore = {
       const _fakeUrl = 'https://jsonplaceholder.typicode.com/posts';
 
       try {
-        const get = await ApiService.GET(_fakeUrl, { id });
-        commit('updateFakePosts', { posts: get.data });
+        const response = await ApiService.GET(_fakeUrl, { id });
+        commit('updateFakePosts', { posts: response.data });
       } catch (e) {
         commit('setError', e);
       }
