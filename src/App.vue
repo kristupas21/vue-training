@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <Navigation :routes="routes" id="app-nav" />
+    <Header>
+      <template v-slot:left>
+        <Logo />
+      </template>
+      <template v-slot:right>
+        <Navigation :routes="routes" id="app-nav" />
+      </template>
+    </Header>
     <div class="wrapper">
       <transition name="slide" mode="out-in">
         <router-view />
@@ -12,10 +19,14 @@
 <script>
 import { MockedRoutes } from '@/components/Navigation/NavRoutes';
 import Navigation from '@/components/Navigation/Navigation.vue';
+import Header from '@/components/Header/Header.vue';
+import Logo from '@/components/Logo/Logo.vue';
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    Header,
+    Logo
   },
   data() {
     return {

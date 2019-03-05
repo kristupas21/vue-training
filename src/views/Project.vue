@@ -1,5 +1,5 @@
 <template>
-  <Loader v-if="showComponent === 'LOADING'"></Loader>
+  <Loader v-if="showComponent === 'LOADING'" :with-background="false"></Loader>
   <div v-else-if="showComponent === 'CONTENT'">
     <div v-for="post of posts" :key="post.id">
       <strong>{{ post.id }}. </strong>
@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Loader from '../components/Loader/Loader.vue';
 import { mapActions, mapGetters } from 'vuex';
+import Loader from '../components/Loader/Loader.vue';
 
 export default {
   components: {
@@ -27,11 +27,15 @@ export default {
     ]),
     showComponent: {
       get() {
-        return (this.isLoading)
-          ? 'LOADING'
-          : (!!this.error)
-            ? 'ERROR'
-            : 'CONTENT';
+        if (this.isLoading) {
+          return 'LOADING';
+        }
+
+        if (this.error) {
+          return 'ERROR';
+        }
+
+        return 'CONTENT';
       }
     }
   },
@@ -43,7 +47,7 @@ export default {
   mounted() {
     this.getPosts({ id: [15, 16, 18] });
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

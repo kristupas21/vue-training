@@ -1,6 +1,6 @@
 import ApiService from '../services/api';
 
-export const ProjectStore = {
+export default {
   namespaced: true,
   state: {
     isLoading: false,
@@ -13,13 +13,13 @@ export const ProjectStore = {
 
       setTimeout(() => {
         this.dispatch('projectStore/getFakePosts', { id });
-        }, 2000)
+      }, 2000);
     },
     async getFakePosts({ commit }, { id }) {
-      const _fakeUrl = 'https://jsonplaceholder.typicode.com/posts';
+      const $fakeUrl = 'https://jsonplaceholder.typicode.com/posts';
 
       try {
-        const response = await ApiService.GET(_fakeUrl, { id });
+        const response = await ApiService.GET($fakeUrl, { id });
         commit('updateFakePosts', { posts: response.data });
       } catch (e) {
         commit('setError', e);

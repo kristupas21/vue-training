@@ -1,12 +1,13 @@
 @import 'source/mixins';
 
 .wrapper {
-  @include flex-container();
   position: relative;
   width: 100%;
-  min-height: 400px;
-  max-width: 100%;
-  overflow: hidden;
+  min-height: 50px;
+  min-width: 540px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .slide-enter-active,
@@ -15,6 +16,5 @@
 }
 .slide-enter,
 .slide-leave-active {
-  transform: scale(1.05);
-  filter: blur(20px);
+  opacity: 0;
 }

@@ -21,11 +21,13 @@
 
 <script>
 import AppLink from '../Link/Link.vue';
+import activeMixin from '../../mixins/activeMixin';
 
 export default {
   components: {
     AppLink
   },
+  mixins: [activeMixin],
   props: {
     id: {
       type: String,
@@ -36,15 +38,7 @@ export default {
       default: () => []
     }
   },
-  data() {
-    return {
-      active: false
-    };
-  },
   methods: {
-    setActive(value) {
-      this.active = value;
-    },
     callback(to) {
       console.log(to);
     }
