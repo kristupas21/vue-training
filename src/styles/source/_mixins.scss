@@ -1,0 +1,46 @@
+@mixin rect($height: 100%, $width: null) {
+  @if ($width == null) {
+    $width: $height;
+  }
+
+  height: $height;
+  width: $width;
+}
+
+@mixin noise($for: text) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    background-image: url('https://i.imgur.com/Ym9HCsT.gif');
+    background-blend-mode: screen;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.2;
+
+    @if ($for == wrapper) {
+      @include rect(100%);
+      content: '';
+    }
+    @else {
+      content: attr(data-text-content);
+      -webkit-background-clip: text;
+      z-index: 2;
+    }
+  }
+}
+
+@mixin flex-container($align: center, $justify: center, $direction: null, $wrap: null) {
+  align-items: $align;
+  direction: $direction;
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+}
+
+@mixin pos-absolute($left: null, $top: null, $right: null, $bottom: null) {
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  position: absolute;
+  top: $top;
+}

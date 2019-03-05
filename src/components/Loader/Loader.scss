@@ -1,0 +1,68 @@
+@import '../../styles/source/colors';
+@import '../../styles/source/mixins';
+
+.loader {
+  @include rect(100%);
+  @include flex-container();
+  @include pos-absolute(0, 0);
+  background: transparent;
+  z-index: 3;
+
+  &--with-bkg {
+    background: rgba(255, 255, 255, .7);
+
+    &.loader--dark {
+      background: rgba(0, 0, 0, .7);
+    }
+  }
+
+  &__element {
+    @include rect(12px, 66px);
+  }
+
+  &__text {
+    color: $retro-off-black;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 5px 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__lines {
+    @include rect(12px, 100%);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+  }
+
+  &__line {
+    @include rect(100%, 2px);
+    animation: opacity-1 1s infinite ease-in-out;
+    background: $retro-off-black;
+    display: inline-block;
+
+    &--1, &--9 { animation-delay: 800ms }
+    &--2, &--8 { animation-delay: 600ms }
+    &--3, &--7 { animation-delay: 400ms }
+    &--4, &--6 { animation-delay: 200ms }
+  }
+
+  &--dark {
+    .loader__text {
+      color: $white;
+    }
+
+    .loader__line {
+      background: $white;
+    }
+  }
+}
+
+@keyframes opacity-1 {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
