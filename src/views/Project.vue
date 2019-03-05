@@ -1,5 +1,5 @@
 <template>
-  <Loader v-if="showComponent === 'LOADING'" :with-background="false"></Loader>
+  <Loader v-if="showComponent === 'LOADING'" :with-background="false" theme="dark"></Loader>
   <div v-else-if="showComponent === 'CONTENT'">
     <div v-for="post of posts" :key="post.id">
       <strong>{{ post.id }}. </strong>

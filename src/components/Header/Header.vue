@@ -24,7 +24,7 @@ export default {
   @import '../../styles/source/colors';
 
   .app-header {
-    background: $retro-violet-dark;
+    // background: $retro-violet-dark;
     width: 100%;
     height: 110px;
     transition: background .2s ease;
@@ -36,7 +36,7 @@ export default {
     }
 
     &--active {
-      background: darken($retro-violet-dark, 10);
+      // background: darken($retro-violet-dark, 10);
     }
 
     &__left {
