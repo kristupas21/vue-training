@@ -26,7 +26,7 @@ export default {
   .app-header {
     background: $retro-violet-dark;
     width: 100%;
-    height: 100px;
+    height: 110px;
     transition: background .2s ease;
 
     &__wrapper {
