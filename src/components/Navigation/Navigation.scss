@@ -21,7 +21,7 @@
   transition: background .15s ease-in-out;
 
   &__link {
-    @include flex-container();
+    @include flex-container($justify: flex-end);
     @extend %nav-link-initial;
     box-sizing: border-box;
     flex: 1 1 auto;

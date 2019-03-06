@@ -1,3 +1,5 @@
+@import '../source/_colors.scss';
+
 h1, .heading-1 {
   font-size: 32px;
   margin-bottom: 20px;
@@ -17,4 +19,11 @@ h4, .heading-4 {
 
 h5, .heading-5 {
   font-size: 13px;
+}
+
+.view-heading {
+  border-bottom: 2px solid rgba(255, 255, 225, .7);
+  padding: 10px 0;
+  text-transform: uppercase;
+  width: max-content;
 }

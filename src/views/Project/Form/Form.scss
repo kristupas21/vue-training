@@ -1,0 +1,81 @@
+@import '../../../styles/source/colors';
+
+.post-form {
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, .8);
+  padding: 25px;
+  margin-top: 30px;
+
+  &__field {
+    min-height: 40px;
+    padding: 8px 0;
+    display: flex;
+  }
+
+  &__label {
+    display: block;
+    padding-top: 10px;
+    width: 120px;
+  }
+
+  &__input {
+
+  }
+
+  &__textarea {
+    min-height: 160px;
+  }
+
+  &__input,
+  &__textarea {
+    min-width: 360px;
+    border-radius: 3px;
+    border: 2px solid white;
+    padding: 6px;
+    background: transparent;
+    font-family: inherit;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    transition: border .2s ease-in-out;
+
+    &::placeholder {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    &:focus {
+      outline: 0;
+      border: 2px solid $retro-pink;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 16px;
+  }
+
+  &__button {
+    height: 40px;
+    width: 120px;
+    font-family: inherit;
+    background: white;
+    color: $retro-off-black;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+
+    &:hover {
+      background: $retro-pink;
+    }
+  }
+}

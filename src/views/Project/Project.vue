@@ -1,23 +1,22 @@
 <template>
-  <Loader v-if="showComponent === 'LOADING'" :with-background="false" theme="dark"></Loader>
-  <div v-else-if="showComponent === 'CONTENT'">
-    <div v-for="post of posts" :key="post.id">
-      <strong>{{ post.id }}. </strong>
-      <span>{{ post.title }}</span>
-    </div>
-  </div>
-  <div v-else class="error">
-    {{ error }}
+  <div>
+    <h1 class="view-heading">
+      PROJECTS
+    </h1>
+    <Content :show-component="showComponent" :error="error" :posts="posts"/>
+    <Form @onFormSubmit="createPost"/>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import Loader from '../components/Loader/Loader.vue';
+import Content from './Content/Content.vue';
+import Form from './Form/Form.vue';
 
 export default {
   components: {
-    Loader
+    Content,
+    Form
   },
   computed: {
     ...mapGetters('projectStore', [
@@ -41,11 +40,12 @@ export default {
   },
   methods: {
     ...mapActions('projectStore', [
-      'getPosts'
+      'getPosts',
+      'createPost'
     ])
   },
   mounted() {
-    this.getPosts({ id: [15, 16, 18] });
+    this.getPosts({ id: [100, 101, 102, 103] });
   }
 };
 </script>

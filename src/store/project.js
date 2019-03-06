@@ -1,4 +1,4 @@
-import ApiService from '../services/api';
+import PostsRepository from '../repositories/PostsRepository';
 
 export default {
   namespaced: true,
@@ -15,12 +15,22 @@ export default {
         this.dispatch('projectStore/getFakePosts', { id });
       }, 2000);
     },
+    createPost({ commit }, data) {
+      commit('setLoadingStatus', true);
+      this.dispatch('projectStore/createFakePost', data);
+    },
     async getFakePosts({ commit }, { id }) {
-      const $fakeUrl = 'https://jsonplaceholder.typicode.com/posts';
-
       try {
-        const response = await ApiService.GET($fakeUrl, { id });
-        commit('updateFakePosts', { posts: response.data });
+        const { data: posts } = await PostsRepository.getPost(id);
+        commit('updateFakePosts', { posts });
+      } catch (e) {
+        commit('setError', e);
+      }
+    },
+    async createFakePost({ commit }, data) {
+      try {
+        await PostsRepository.createPost(data);
+        commit('setLoadingStatus', false);
       } catch (e) {
         commit('setError', e);
       }
